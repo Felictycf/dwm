@@ -897,6 +897,7 @@ drawbar(Monitor *m)
 		// 	if (m->sel->isfloating)
 		// 		drw_rect(drw, x + boxs, boxs, boxw, boxw, m->sel->isfixed, 0);
 		if (n > 0) {
+			int my = x;
 			for (c = m->clients; c; c = c->next) {
 				if (!ISVISIBLE(c))
 					continue;
@@ -908,9 +909,10 @@ drawbar(Monitor *m)
 					scm = SchemeNorm;
 				drw_setscheme(drw, scheme[scm]);
 				drw_text(drw, x, 0, (1.0 / (double)n) * w, bh, lrpad / 2 + (m->sel->icon ? m->sel->icw + ICONSPACING : 0), c->name, 0);
-				if (m->sel->icon) drw_pic(drw, x + lrpad / 2, (bh - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
 				x += (1.0 / (double)n) * w;
 			}
+			if (m->sel->icon)
+				drw_pic(drw, my + lrpad / 2, (bh - m->sel->ich) / 2, m->sel->icw, m->sel->ich, m->sel->icon);
 		} else {
 			drw_setscheme(drw, scheme[SchemeNorm]);
 			drw_rect(drw, x, 0, w, bh, 1, 1);

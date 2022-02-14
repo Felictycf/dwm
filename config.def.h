@@ -16,7 +16,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-#define ICONSIZE 16   /* icon size */
+#define ICONSIZE 24   /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
 static const char *fonts[]          = { "Hack Nerd Font Mono:size=20" };
 static const char col_gray1[]       = "#282a36";
