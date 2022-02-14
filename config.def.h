@@ -92,6 +92,13 @@ static const char *screenshots[] = { "/home/aaron/GitHub/suckless/dwm/scripts/fl
 static const char *VolUp[] = { "/home/aaron/GitHub/suckless/dwm/scripts/vol/vol-up.sh", NULL };
 static const char *VolDown[] = { "/home/aaron/GitHub/suckless/dwm/scripts/vol/vol-down.sh", NULL };
 
+/*
+* 亮度
+* LightUp 增加
+* LightDown 减少
+*/
+static const char *LightUp[] = { "/home/aaron/GitHub/suckless/dwm/scripts/xbacklight/xbacklight-up.sh", NULL };
+static const char *LightDown[] = { "/home/aaron/GitHub/suckless/dwm/scripts/xbacklight/xbacklight-down.sh", NULL };
 
 /* 便笺 */
 static const char scratchpadname[] = "scratchpad";
