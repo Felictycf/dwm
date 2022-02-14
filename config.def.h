@@ -62,18 +62,25 @@ static const char *termcmd[]  = { "st", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY,                       XK_d,          spawn,          {.v = dmenucmd } }, /* 菜单 */
+	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd} }, /* 终端 */
+	{ MODKEY|ShiftMask,             XK_Return,     zoom,           {0} }, /* 移动到主窗口 */
+	{ MODKEY|ShiftMask,             XK_q,          killclient,     {0} }, /* 结束软件 */
+	{ MODKEY|ShiftMask|Mod1Mask,    XK_c,          quit,           {0} }, /* 结束 DWM */
+	{ MODKEY,                       XK_b,          togglebar,      {0} }, /* 隐藏状态栏 */
+	{ MODKEY,                       XK_v,          incnmaster,     {.i = +1 } }, /* 横向分割 */
+	{ MODKEY,                       XK_s,          incnmaster,     {.i = -1 } }, /* 竖向分割 */
+	{ MODKEY,                       XK_h,          setmfact,       {.f = -0.05} }, /* 向左放大 */
+	{ MODKEY,                       XK_l,          setmfact,       {.f = +0.05} }, /* 向右放大 */
+
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -94,7 +101,6 @@ static Key keys[] = {
 	TAGKEYS(                        XK_7,                      6)
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
 /* button definitions */
