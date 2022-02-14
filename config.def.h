@@ -19,11 +19,11 @@ static const Bool viewontag         = True;     /* Switch view on tag switch */
 #define ICONSIZE 16   /* icon size */
 #define ICONSPACING 5 /* space between icon and title */
 static const char *fonts[]          = { "Hack Nerd Font Mono:size=20" };
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#282a36";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#b790ec";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -74,6 +74,11 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "/home/aaron/GitHub/suckless/dwm/scripts/menu.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+/*
+ * 截图
+*/
+static const char *screenshots[] = { "/home/aaron/GitHub/suckless/dwm/scripts/flameshot.sh", NULL };
+
 /* 便笺 */
 static const char scratchpadname[] = "scratchpad";
 static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
@@ -82,6 +87,7 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,          spawn,          {.v = dmenucmd } }, /* 菜单 */
 	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd} }, /* 终端 */
+	 { Mod1Mask,                    XK_a,          spawn,          {.v = screenshots} }, /* 截屏 */
 	{ MODKEY,                       XK_apostrophe, togglescratch,  {.v = scratchpadcmd} }, /* 浮动终端 */
 	{ MODKEY|ShiftMask,             XK_Return,     zoom,           {0} }, /* 移动到主窗口 */
 	{ MODKEY|ShiftMask,             XK_q,          killclient,     {0} }, /* 结束软件 */
