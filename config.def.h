@@ -53,9 +53,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "",      tile },    /* first entry is default */
+	{ "",      NULL },    /* no layout function means floating behavior */
+	{ "",      monocle },
 };
 
 /* key definitions */
@@ -74,10 +74,15 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "/home/aaron/GitHub/suckless/dwm/scripts/menu.sh", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
+/* 便笺 */
+static const char scratchpadname[] = "scratchpad";
+static const char *scratchpadcmd[] = { "st", "-t", scratchpadname, "-g", "120x34", NULL };
+
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,          spawn,          {.v = dmenucmd } }, /* 菜单 */
 	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd} }, /* 终端 */
+	{ MODKEY,                       XK_apostrophe, togglescratch,  {.v = scratchpadcmd} }, /* 浮动终端 */
 	{ MODKEY|ShiftMask,             XK_Return,     zoom,           {0} }, /* 移动到主窗口 */
 	{ MODKEY|ShiftMask,             XK_q,          killclient,     {0} }, /* 结束软件 */
 	{ MODKEY|ShiftMask|Mod1Mask,    XK_c,          quit,           {0} }, /* 结束 DWM */
@@ -87,7 +92,6 @@ static Key keys[] = {
 	{ MODKEY,                       XK_h,          setmfact,       {.f = -0.05} }, /* 向左放大 */
 	{ MODKEY,                       XK_l,          setmfact,       {.f = +0.05} }, /* 向右放大 */
 	{ MODKEY|Mod1Mask,              XK_0,          togglegaps,     {0} }, /* 打开和关闭间隙 */
-	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 
 	 /* 窗口移动 */
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
