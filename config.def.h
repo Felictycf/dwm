@@ -75,9 +75,23 @@ static const char *dmenucmd[] = { "/home/aaron/GitHub/suckless/dwm/scripts/menu.
 static const char *termcmd[]  = { "st", NULL };
 
 /*
+* 切换壁纸
+*/
+static const char *SwitchWallpapers[] = { "/home/aaron/.scripts/wallpic/wallpic.sh", NULL };
+
+/*
  * 截图
 */
 static const char *screenshots[] = { "/home/aaron/GitHub/suckless/dwm/scripts/flameshot.sh", NULL };
+
+/*
+* 音量
+* VolUp 增加
+* VolDown 减少
+*/
+static const char *VolUp[] = { "/home/aaron/GitHub/suckless/dwm/scripts/vol/vol-up.sh", NULL };
+static const char *VolDown[] = { "/home/aaron/GitHub/suckless/dwm/scripts/vol/vol-down.sh", NULL };
+
 
 /* 便笺 */
 static const char scratchpadname[] = "scratchpad";
@@ -87,8 +101,13 @@ static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,          spawn,          {.v = dmenucmd } }, /* 菜单 */
 	{ MODKEY,                       XK_Return,     spawn,          {.v = termcmd} }, /* 终端 */
-	 { Mod1Mask,                    XK_a,          spawn,          {.v = screenshots} }, /* 截屏 */
+	{ Mod1Mask,                    XK_a,          spawn,          {.v = screenshots} }, /* 截屏 */
 	{ MODKEY,                       XK_apostrophe, togglescratch,  {.v = scratchpadcmd} }, /* 浮动终端 */
+	{ MODKEY|ShiftMask,             XK_d,          spawn,          {.v = SwitchWallpapers} }, /* 切换壁纸 */
+	{ MODKEY|ShiftMask,             XK_w,          spawn,          {.v = VolUp} }, /* 增加音量 */
+  	{ MODKEY|ShiftMask,             XK_s,          spawn,          {.v = VolDown} }, /* 减少音量 */
+  	{ MODKEY|Mod1Mask,              XK_w,          spawn,          {.v = LightUp} }, /* 增加亮度 */
+  	{ MODKEY|Mod1Mask,              XK_s,          spawn,          {.v = LightDown} }, /* 减少亮度 */
 	{ MODKEY|ShiftMask,             XK_Return,     zoom,           {0} }, /* 移动到主窗口 */
 	{ MODKEY|ShiftMask,             XK_q,          killclient,     {0} }, /* 结束软件 */
 	{ MODKEY|ShiftMask|Mod1Mask,    XK_c,          quit,           {0} }, /* 结束 DWM */
