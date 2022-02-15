@@ -72,9 +72,9 @@ print_date(){
     # echo 盛 ${xl%.*}%
 # }
 
-get_user() {
-    echo  $(who | awk '{print $1}')
-}
+# get_user() {
+    # echo  $(who | awk '{print $1}')
+# }
 
 get_wifi() {
   wifi=$(iwctl known-networks list | awk 'NR==5 {print $1}')
@@ -86,6 +86,6 @@ LOC=$(readlink -f "$0")
 DIR=$(dirname "$LOC")
 export IDENTIFIER="unicode"
 
-xsetroot -name "$(get_user) | $(get_volume_status) | $(print_bat) | $(get_wifi) | $(print_date)"
+xsetroot -name "$(get_volume_status) | $(print_bat) | $(get_wifi) | $(print_date)"
 
 exit 0

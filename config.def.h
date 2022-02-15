@@ -16,8 +16,6 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const Bool viewontag         = True;     /* Switch view on tag switch */
-#define ICONSIZE 24   /* icon size */
-#define ICONSPACING 5 /* space between icon and title */
 static const char *fonts[]          = { "Hack Nerd Font Mono:size=20" };
 static const char col_gray1[]       = "#282a36";
 static const char col_gray2[]       = "#444444";
@@ -130,6 +128,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{MODKEY,						XK_o, 	   hidewin, 	   {0}},
+    {MODKEY|ShiftMask, 			    XK_o, 	   restorewin, 	   {0}},
+    {MODKEY, 						XK_w, 	   hideotherwins,  {0}},
+    {MODKEY|ShiftMask, 				XK_w, 	   restoreotherwins, {0}},
 
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
