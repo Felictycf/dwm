@@ -53,13 +53,13 @@ get_battery_charging_status() {
 get_volume_status() {
     VOL=$(amixer get Master | tail -n1 | sed -r "s/.*\[(.*)%\].*/\1/")
     if [ "$VOL" -eq 0 ]; then
-        echo 🔇 $VOL%
+        echo 婢$VOL%
     elif [ "$VOL" -gt 0 ] && [ "$VOL" -le 33 ]; then
-        echo 🔈 $VOL%
+        echo  $VOL%
     elif [ "$VOL" -gt 33 ] && [ "$VOL" -le 66 ]; then
-        echo 🔉 $VOL%
+        echo 墳 $VOL%
     else
-        echo 🔊 $VOL%
+        echo  $VOL%
     fi
 }
 
