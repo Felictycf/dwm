@@ -64,7 +64,7 @@ get_volume_status() {
 }
 
 print_date(){
-    echo 📆 $(date '+%y/%m/%d %A %H:%M')
+    echo  $(date '+%y/%m/%d %A %H:%M')
 }
 
 # get_xbacklight_status() {
