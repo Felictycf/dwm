@@ -21,6 +21,8 @@ ${OBJ}: config.h config.mk
 
 config.h:
 	cp config.def.h $@
+	mkdir -p ~/.dwm
+	cp -f scripts/autostart.sh ~/.dwm/
 
 dwm: ${OBJ}
 	${CC} -o $@ ${OBJ} ${LDFLAGS}
